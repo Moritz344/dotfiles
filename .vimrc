@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')  
 
+"" Switched to Nvchad
+
 Plug 'tpope/vim-sensible'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
