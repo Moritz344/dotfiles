@@ -12,9 +12,9 @@ Font: Nerdfont BigBlueTerm
 
 ![vim](https://github.com/user-attachments/assets/28cad712-e154-488e-a267-9b5b2206c652)
 
-![i3-pic](https://github.com/user-attachments/assets/37bef857-7664-4871-96a8-11c93a406c39)
-
 ![doom](https://github.com/user-attachments/assets/9f4eff3b-918a-4367-aacf-8f141814e960)
+
+![i3-pic](https://github.com/user-attachments/assets/37bef857-7664-4871-96a8-11c93a406c39)
 
 
 
