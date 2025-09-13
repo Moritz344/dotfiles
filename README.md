@@ -2,7 +2,11 @@ My dotfiles
 
 wallpaper: https://wallhaven.cc/w/859qdo
 
-Font: Nerdfont BigBlueTerm
+Font: Nerdfont BigBlueTerm or other nerdfonts
+
+
+<img width="1918" height="1076" alt="neovim" src="https://github.com/user-attachments/assets/331852e7-27d5-4a67-bd97-5dbc60e305b4" />
+
 
 </details>
 <details>
@@ -15,8 +19,6 @@ Font: Nerdfont BigBlueTerm
 ![doom](https://github.com/user-attachments/assets/9f4eff3b-918a-4367-aacf-8f141814e960)
 
 ![i3-pic](https://github.com/user-attachments/assets/37bef857-7664-4871-96a8-11c93a406c39)
-
-
 
 
 </details>
