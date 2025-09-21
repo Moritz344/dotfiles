@@ -1,6 +1,5 @@
-My dotfiles
+# My dotfiles
 
-wallpaper: https://wallhaven.cc/w/859qdo
 
 Font: Nerdfont BigBlueTerm or other nerdfonts
 
