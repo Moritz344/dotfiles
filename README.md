@@ -3,7 +3,7 @@
 
 Font: Nerdfont BigBlueTerm or other nerdfonts
 
-<img width="1918" height="1070" alt="rice" src="https://github.com/user-attachments/assets/926ef400-93da-4e88-843e-1812c9acb56e" />
+<img width="1913" height="1080" alt="gravel_rice" src="https://github.com/user-attachments/assets/7b823328-900f-44a0-926d-73305893c919" />
 
 
 
