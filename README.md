@@ -10,9 +10,8 @@ Font: Nerdfont BigBlueTerm or other nerdfonts
 </details>
 <details>
 <summary>Screenshots</summary>
-<img width="1918" height="1076" alt="neovim" src="https://github.com/user-attachments/assets/331852e7-27d5-4a67-bd97-5dbc60e305b4" />
-
-![vim](https://github.com/user-attachments/assets/28cad712-e154-488e-a267-9b5b2206c652)
+<img width="1918" height="1080" alt="neovim-dash" src="https://github.com/user-attachments/assets/b9925c05-7d05-4a43-8121-8c18f7115c12" />
+<img width="1917" height="1078" alt="neovim-edit" src="https://github.com/user-attachments/assets/01709640-cfdd-4139-a0ca-18f7084bf63e" />
 
 
 </details>
