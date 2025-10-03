@@ -2,11 +2,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vague2k/vague.nvim'
 Plug 'stevearc/oil.nvim'
-Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'pocco81/true-zen.nvim'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'numToStr/Navigator.nvim'
 Plug 'iabdelkareem/csharp.nvim'
 Plug 'GustavEikaas/easy-dotnet.nvim'
@@ -26,59 +23,52 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'max397574/startup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
+Plug 'folke/sidekick.nvim'
+Plug 'nvim-mini/mini.nvim'
+Plug 'sphamba/smear-cursor.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 call plug#end()
 
 
-lua require("startup").setup({theme = "dashboard"})
 lua require("toggleterm").setup()
+lua require('mini.pick').setup()
+lua require('mini.starter').setup()
+lua require('mini.notify').setup()
+lua require('mini.icons').setup()
+lua require('mini.statusline').setup()
+lua require('mini.trailspace').setup()
 
 lua << EOF
 require("mason").setup()
-require("mason-lspconfig").setup({
-})
-
-
+require("mason-lspconfig").setup({})
 EOF
 
 
 
 lua <<EOF
-  -- Set up nvim-cmp.
   local cmp = require'cmp'
 
   cmp.setup({
     snippet = {
-      -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-        -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+        vim.fn["vsnip#anonymous"](args.body) 
 
-        -- For `mini.snippets` users:
-        -- local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
-        -- insert({ body = args.body }) -- Insert at cursor
-        -- cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-        -- require("cmp.config").set_onetime({ sources = {} })
       end,
     },
     window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), 
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
+      { name = 'vsnip' }, 
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
@@ -87,16 +77,6 @@ lua <<EOF
     })
   })
 
-  -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
-  -- Set configuration for specific filetype.
-  --[[ cmp.setup.filetype('gitcommit', { sources = cmp.config.sources({ { name = 'git' },
-    }, {
-      { name = 'buffer' },
-    })
- })
- require("cmp_git").setup() ]]--
-
-  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
@@ -104,7 +84,6 @@ lua <<EOF
     }
   })
 
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
@@ -133,16 +112,6 @@ require('gitsigns').setup {
 EOF
 
 
-lua << EOF
-local lspconfig = require("lspconfig")
-
-lspconfig.omnisharp.setup({
-    cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
-    enable_roslyn_analyzers = true,
-    enable_import_completion = true,
-    organize_imports_on_format = true,
-})
-EOF
 
 
 lua << EOF
@@ -211,11 +180,13 @@ EOF
 
 set number
 set relativenumber
-set tabstop=2			
+set tabstop=2
 set noswapfile
 set guicursor=i:block
 
 
+nnoremap <SPACE>p :Pick files<CR>
+nnoremap <SPACE>fg :Telescope live_grep<CR>
 nnoremap - :Oil<CR>
 nnoremap <A-h> :NavigatorLeft<CR>
 nnoremap <A-l> :NavigatorRight<CR>
@@ -229,5 +200,5 @@ tnoremap <A-k> <C-\><C-n>:NavigatorUp<CR>
 tnoremap <A-j> <C-\><C-n>:NavigatorDown<CR>
 tnoremap <A-p> <C-\><C-n>:NavigatorPrevious<CR>
 
-
 colorscheme vague
+
