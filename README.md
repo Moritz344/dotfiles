@@ -1,9 +1,17 @@
 # My dotfiles
 
+![rice](https://github.com/user-attachments/assets/ab59f0ca-d52c-4cf8-9ad4-5e5953b5a560)
 
-Font: Nerdfont BigBlueTerm or other nerdfonts
 
-![rice](https://github.com/user-attachments/assets/739b10cf-3290-4b0a-a03a-97eaa2ac92b2)
+Font: HackNerdFont-Regular
 
+<details>
+
+<summary>More Screenshots</summary>
+
+![more](https://github.com/user-attachments/assets/9aad6d31-676e-401e-a163-fe36fe0bc809)
+
+  
+</details>
 
 
