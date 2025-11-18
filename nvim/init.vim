@@ -1,3 +1,4 @@
+"" Switched to lazyvim
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vague2k/vague.nvim'
