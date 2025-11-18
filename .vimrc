@@ -1,3 +1,4 @@
+"" Switched to lazyvim
 call plug#begin('~/.vim/plugged')  
 
 
