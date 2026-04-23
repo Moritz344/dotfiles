@@ -9,6 +9,7 @@
     "custom/omarchy",
     "hyprland/workspaces",
     "clock",
+    "custom/calendar",
     "custom/update",
     "custom/voxtype",
     "custom/screenrecording-indicator",
@@ -47,13 +48,17 @@
       "5": []
     }
   },
+  "custom/calendar": {
+    "format": "  ",
+    "on-click": "pkill -x waycal || waycal",
+  },
   "custom/wallpaper": {
     "format":" 󰸉 ",
     "tooltip-format": "Wallpaper Picker",
-    "on-click": "/home/moritz/programming/bash_scripts/start_wallpaper_picker.sh",
+    "on-click": "/home/moritz/dotfiles/scripts/bash_scripts/start_wallpaper_picker.sh",
   },
   "custom/temp": {
-    "exec": "../../../scripts/bash_scripts/weather.sh json Berlin",
+    "exec": "/home/moritz/dotfiles/scripts/bash_scripts/weather.sh json Berlin",
     "interval": 300,
     "return-type": "json"
   },
