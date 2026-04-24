@@ -52,6 +52,25 @@ require("snacks").setup({
   },
 })
 
+vim.diagnostic.handlers["my/notify"] = {
+  show = function(namespace, bufnr, diagnostics, opts)
+    local level = opts["my/notify"].log_level
+    local name = vim.diagnostic.get_namespace(namespace).name
+    local msg = string.format("%d diagnostics in buffer %d from %s",
+                              #diagnostics,
+                              bufnr,
+                              name)
+    vim.notify(msg, level)
+  end,
+}
+vim.diagnostic.config({
+  ["my/notify"] = {
+    log_level = vim.log.levels.INFO,
+    severity = vim.diagnostic.severity.ERROR,
+  }
+})
+
+
 require("nvim-ts-autotag").setup({
   opts = {
     enable_close = true, -- Auto close tags
@@ -105,4 +124,22 @@ vim.g.mapleader = " "
 
 -- Keybinds
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.lsp.handlers.hover = function(_, result, ctx, config)
+  config = config or {}
+  config.border = config.border or "rounded"
+  config.max_width = 80
+  config.max_height = 30
+  return vim.lsp._meta.protocol.handlers["textDocument/hover"](_, result, ctx, config)
+end
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end,
+})
+
+
+vim.keymap.set("n", "K", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist, { desc = "Quickfix diagnostics" })
+vim.keymap.set("n", "<leader>l", ":copen<CR>", { desc = "Open quickfix" })
 
