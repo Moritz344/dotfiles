@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPER_DIR="$HOME/.config/omarchy/current/theme/backgrounds/"
+WALLPAPER_DIR="$HOME/Wallpapers/"
 
 
 WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( \
