@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "blink.cmp": {
+      "rev": "e1dbca9ea1d8dc7a83e27a52bbd990bd717e54a6",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
     "conform.nvim": {
       "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -28,9 +32,17 @@
       "rev": "75d976d89edc4b9457447ba83201ec5805600f79",
       "src": "https://github.com/delphinus/md-render.nvim"
     },
+    "mini.nvim": {
+      "rev": "35422e90b0de232245e2b1d3b3737a7c419d377b",
+      "src": "https://github.com/folke/mini.nvim"
+    },
     "noice.nvim": {
       "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
       "src": "https://github.com/folke/noice.nvim"
+    },
+    "nvim-cmp": {
+      "rev": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
+      "src": "https://github.com/hrsh7th/nvim-cmp"
     },
     "nvim-lspconfig": {
       "rev": "4ea9083b6d3dff4ddc6da17c51334c3255b7eba5",

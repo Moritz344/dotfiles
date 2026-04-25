@@ -11,16 +11,17 @@ vim.pack.add({
   { src = 'https://github.com/folke/noice.nvim' },
   { src = 'https://github.com/lewis6991/gitsigns.nvim' },
   { src = 'https://github.com/windwp/nvim-ts-autotag' },
-  { src = 'https://github.com/folke/snacks.nvim' },
-  { src = 'https://github.com/folke/lazy.nvim' }
+  { src = 'https://github.com/echasnovski/mini.nvim' },
 })
 
-require("snacks").setup({
-  dashboard = {
-    enabled = true,
-    width = 60,
-    preset = {
-      header = [[
+require('mini.notify').setup()
+require('mini.completion').setup()
+require('mini.pairs').setup()
+require('mini.statusline').setup()
+require('mini.trailspace').setup()
+require('mini.starter').setup({
+  header = function()
+    return[[
       ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠖⠃⠀⠀⠀⡁⠀⠀⠀⠀⠀⠐⠆⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢔⡤⠊⠁⠀⠀⠀⠀⠀
@@ -40,29 +41,12 @@ require("snacks").setup({
 ⠀⠀⠀⠀⠀⠀⡀⣦⣾⡿⡛⠵⠺⢈⡠⠶⠿⠥⠥⡭⠉⠉⢱⡛⠻⠿⣿⣿⣿⣿⣿⠿⠿⠿⠟⠭⠛⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⢀⢴⠕⣋⠝⠕⠐⠀⠔⠉⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠉⠁⠁⠁⠁⠈⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⢀⣠⠁⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-]],
-      keys = {
-        { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-        { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-        { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-        { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-        { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-      },
-    },
-  },
+
+    ]]
+  end
+
 })
 
-vim.diagnostic.handlers["my/notify"] = {
-  show = function(namespace, bufnr, diagnostics, opts)
-    local level = opts["my/notify"].log_level
-    local name = vim.diagnostic.get_namespace(namespace).name
-    local msg = string.format("%d diagnostics in buffer %d from %s",
-                              #diagnostics,
-                              bufnr,
-                              name)
-    vim.notify(msg, level)
-  end,
-}
 vim.diagnostic.config({
   ["my/notify"] = {
     log_level = vim.log.levels.INFO,
@@ -107,13 +91,15 @@ require("gitsigns").setup({})
 
 vim.lsp.enable({ 'ts_ls', 'angularls' })
 
+
 -- General Settings
+vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
 vim.opt.number = true
 vim.opt.expandtab = true
-vim.opt.tabstop = 2         
-vim.opt.shiftwidth = 2      
-vim.opt.splitright = true   
-vim.opt.splitbelow = true   
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 vim.cmd.colorscheme("vague")
 vim.opt.relativenumber = true
 vim.opt.cursorline = false
