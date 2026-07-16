@@ -17,6 +17,7 @@ vim.pack.add({
   { src = 'https://github.com/AlexvZyl/nordic.nvim' },
   { src = 'https://github.com/IogaMaster/neocord' },
   { src = 'https://github.com/fenetikm/falcon' },
+  { src = 'https://github.com/nickjvandyke/opencode.nvim',version= vim.version.range("*")},
 })
 
 require('mini.notify').setup()
@@ -61,7 +62,6 @@ vim.diagnostic.config({
 })
 
 require("neocord").setup({
-    -- General options
     logo                = "auto",                     -- "auto" or url
     logo_tooltip        = nil,                        -- nil or string
     main_image          = "language",                 -- "language" or "logo"
@@ -87,6 +87,12 @@ require("neocord").setup({
 })
 
 
+---@type opencode.Opts
+vim.g.opencode_opts = {
+  -- Your configuration, if any; goto definition on the type for details
+}
+
+vim.o.autoread = true -- Required for `vim.g.opencode_opts.events.reload`
 
 
 require("nvim-ts-autotag").setup({
@@ -105,11 +111,12 @@ require('lspconfig').ts_ls.setup({})
 require('lspconfig').angularls.setup({})
 require('lspconfig').intelephense.setup({})
 require('lspconfig').clangd.setup({})
+require('lspconfig').rust_analyzer.setup({})
 require("oil").setup()
 require("lake-dweller").setup()
 require("gitsigns").setup({})
 
-vim.lsp.enable({ 'ts_ls', 'angularls', 'intelephense', 'clangd' })
+vim.lsp.enable({ 'ts_ls', 'angularls', 'intelephense', 'clangd','rust-analyzer' })
 
 
 -- General Settings
@@ -128,7 +135,7 @@ vim.o.guicursor = 'n-v-c-sm-i-ci-ve:block'
 vim.g.mapleader = " "
 
 
-vim.cmd.colorscheme("vague")
+vim.cmd.colorscheme("habamax")
 
 -- Keybinds
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
@@ -160,6 +167,17 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, { focus = false })
   end,
 })
+
+
+-- opencode nvim
+vim.keymap.set({ "n", "x" }, "<leader>oa", function() require("opencode").ask("@this: ") end, { desc = "Ask OpenCode…" })
+vim.keymap.set({ "n", "x" }, "<leader>os", function() require("opencode").select() end,       { desc = "Select OpenCode…" })
+
+vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Append range to OpenCode", expr = true })
+vim.keymap.set("n",          "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Append line to OpenCode", expr = true })
+
+vim.keymap.set("n", "<S-C-u>", function() require("opencode").command("session.half.page.up") end,   { desc = "Scroll OpenCode up" })
+vim.keymap.set("n", "<S-C-d>", function() require("opencode").command("session.half.page.down") end, { desc = "Scroll OpenCode down" })
 
 
 
