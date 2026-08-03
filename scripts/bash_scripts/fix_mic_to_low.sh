@@ -1,0 +1,2 @@
+#!/bin/bash
+pactl set-source-volume @DEFAULT_SOURCE@ $1%
