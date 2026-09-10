@@ -135,7 +135,7 @@ vim.o.guicursor = 'n-v-c-sm-i-ci-ve:block'
 vim.g.mapleader = " "
 
 
-vim.cmd.colorscheme("habamax")
+vim.cmd.colorscheme("vague")
 
 -- Keybinds
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
