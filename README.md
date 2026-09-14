@@ -1,22 +1,7 @@
 # Dotfiles
+my current setup is cachyos + hyprland + noctalia shell
 
-## Hyprland
+<img width="1918" height="1080" alt="satty-2026-09-14_15:57:02" src="https://github.com/user-attachments/assets/f98b0428-5659-4933-8e26-cbd6f3d9e208" />
 
-<img width="1926" height="1080" alt="screenshot-2026-06-21_13-37-46" src="https://github.com/user-attachments/assets/c2a49233-776c-46fd-8471-d26db4c8731a" />
-<details>
-  <summary>More Screenshots:</summary>
-  <img width="1928" height="1080" alt="screenshot-2026-06-21_13-39-59" src="https://github.com/user-attachments/assets/17a8bd19-3cdc-4a6b-b8e2-c9652f423769" />
-
-<img width="1927" height="1080" alt="screenshot-2026-06-21_13-40-14" src="https://github.com/user-attachments/assets/036ad9f7-261b-4495-afcc-b0c42f91d38b" />
-
-</details>
-
-
-## Gnome
-  <img width="1920" height="1080" alt="Bildschirmfoto vom 2026-07-19 11-57-31" src="https://github.com/user-attachments/assets/1af10d44-581a-4ea4-9e94-7ccba011c26a" />
-  <details>
-      <summary>More Screenshots:</summary>
-      <img width="1920" height="1080" alt="Bildschirmfoto vom 2026-07-19 11-58-35" src="https://github.com/user-attachments/assets/9830848e-d058-4b10-941e-9ba34ec995d0" />
-  </details>
 
 
